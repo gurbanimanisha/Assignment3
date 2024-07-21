@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <style>
+    #Signup-form button a{
+      color: rgb(24, 24, 24);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <form id="Signup-form">
+    <h1>Sign Up</h1>
+    <label for="Username">Username:</label>
+    <input type="Usernamr" id="Username" name="Username"><br><br>
+    <label for="Email">Email:</label>
+    <input type="email" id="Email" name="Email"><br><br>
+    <label for="Password">Password:</label>
+    <input type="password" id="Password" name="Password"><br><br>
+    <label for="Confirm-Password">Confirm Password:</label>
+    <input type="password" id="Confirm-Password" name="Confirm-Password"><br><br>
+    <button type="submit"><a href="./signin.html">Create Account</a></button>
+  </form>
+  <div id="error-message"></div>
+  <script>
+    const form = document.getElementById('Signup-form');
+    const errorMessage = document.getElementById('error-message');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('Username').value;
+      const email = document.getElementById('Email').value;
+      const password = document.getElementById('Password').value;
+      const confirmPassword = document.getElementById('Confirm-Password').value;
+    })
+    if (!username ||!email ||!password ||!confirmPassword) {
+      errorMessage.textContent = 'Please fill in all fields.';
+      return;
+    }
+    if (password!== confirmPassword) {
+      errorMessage.textContent = 'Passwords do not match.';
+      return;
+    }
+    if (password.length < 8) {
+        errorMessage.textContent = 'Password must be at least 8 characters long.';
+        return;
+      }
+
+
+  </script>
+</body>
+</html>
